@@ -76,6 +76,33 @@ public class AirportController : ControllerBase
     return Ok("File uploaded to Azure Blob Storage successfully.");
    }
 
+   [HttpPost("index/btree")]
+    public IActionResult CreateBTreeIndex()
+    {
+        _repository.CreateIndexBTree();
+        return Ok("B-tree index created successfully.");
+    }
+    
+   [HttpPost("index/text")]
+    public IActionResult CreateTextIndex()
+    {
+        _repository.CreateTextIndex();
+        return Ok("Text index created successfully.");
+    }
+
+    [HttpPost("index/geospatial")]
+    public IActionResult CreateGeospatialIndex()
+    {
+        _repository.CreateGeospatialIndex();
+        return Ok("Geospatial index created successfully.");
+    }
+
+    [HttpPost("index/bucket")]
+    public IActionResult CreateBucketIndex()
+    {
+        _repository.CreateBucketIndex();
+        return Ok("Bucket index created successfully.");
+    }
     // Implement other CRUD endpoints
 
 }
