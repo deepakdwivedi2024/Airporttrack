@@ -24,4 +24,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 
     services.AddScoped<IAzureBlobStorageService, AzureBlobStorageService>();
+    services.AddScoped<IETLService, ETLService>();
+
 }
