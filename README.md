@@ -60,17 +60,29 @@ Explore API Endpoints:
 Use Swagger UI to explore and test the available endpoints for CRUD operations, data aggregation, ETL, and file upload.
 
 GET /api/airports: Retrieves all airports.
+
 POST /api/airports: Creates a new airport.
+
 GET /api/airports/{id}: Retrieves a specific airport by ID.
+
 PUT /api/airports/{id}: Updates a specific airport.
+
 DELETE /api/airports/{id}: Deletes a specific airport.
+
 GET /api/airports/aggregate: Performs data aggregation on airports.
+
 POST /api/airports/csv: Generates a CSV file of airports.
+
 POST /api/airports/upload-to-azure-blob: Uploads a CSV file to Azure Blob Storage.
+
 GET /api/airports/sorted: Retrieves sorted and limited airports.
+
 GET /api/airports/filtered: Retrieves airports filtered by country.
+
 GET /api/airports/nearby: Retrieves airports near a specified location.
+
 GET /api/airports/search: Searches airports based on a search text.
+
 ETL Process:
 
 The ETL (Extract, Transform, Load) process can be initiated by sending a POST request to the /api/etl endpoint. This endpoint triggers the ETL process asynchronously.
