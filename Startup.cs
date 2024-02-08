@@ -24,4 +24,17 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);
 
     services.AddScoped<IAzureBlobStorageService, AzureBlobStorageService>();
+    services.AddScoped<IAirportETLService, AirportETLService>();
+
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    // Existing configurations...
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+        endpoints.MapETLEndpoint();
+    });
 }
