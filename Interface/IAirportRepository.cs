@@ -9,6 +9,10 @@ public interface IAirportRepository
     Task<IEnumerable<Airport>> SearchAsync(string searchText);
     Task GenerateCSVAsync(IEnumerable<Airport> airports, string filePath);
     Task UploadToAzureBlobAsync(string filePath, string containerName, string blobName);
+    void CreateIndexBTree();
+    void CreateTextIndex();
+    void CreateGeospatialIndex();
+    void CreateBucketIndex();
     // Other CRUD methods
 }
 
