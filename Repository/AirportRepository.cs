@@ -48,6 +48,23 @@ public class AirportRepository : IAirportRepository
     {
         // Logic to upload file to Azure Blob Storage
     }
+    public void CreateIndexBTree()
+    {
+        var keys = Builders<Airport>.IndexKeys.Ascending("Name");
+        var options = new CreateIndexOptions { Unique = true };
+        _collection.Indexes.CreateOne(keys, options);
+    }
 
+    public void CreateTextIndex()
+    {
+        var keys = Builders<Airport>.IndexKeys.Text(x => x.Name, x => x.City, x => x.Country);
+        _collection.Indexes.CreateOne(keys);
+    }
+
+    public void CreateGeospatialIndex()
+    {
+        var keys = Builders<Airport>.IndexKeys.Geo2DSphere(x => x.Location);
+        _collection.Indexes.CreateOne(keys);
+    }
     // Implement other CRUD methods
 }
