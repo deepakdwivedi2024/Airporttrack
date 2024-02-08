@@ -89,9 +89,13 @@ The ETL (Extract, Transform, Load) process can be initiated by sending a POST re
 
 File Structure
 Controllers/: Contains controller classes defining API endpoints.
+
 Models/: Contains model classes representing airport data.
+
 Repositories/: Contains repository classes for interacting with MongoDB.
+
 Services/: Contains service classes such as ETL service and Azure Blob Storage service.
+
 appsettings.json: Configuration file for MongoDB connection and Azure Blob Storage settings.
+
 Startup.cs: Configures services and middleware for the application.
-License
