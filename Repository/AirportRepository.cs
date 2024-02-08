@@ -66,5 +66,11 @@ public class AirportRepository : IAirportRepository
         var keys = Builders<Airport>.IndexKeys.Geo2DSphere(x => x.Location);
         _collection.Indexes.CreateOne(keys);
     }
+
+    public void CreateBucketIndex()
+    {
+        var keys = Builders<Airport>.IndexKeys.BucketAuto(x => x.Altitude, 10);
+        _collection.Indexes.CreateOne(keys);
+    }
     // Implement other CRUD methods
 }
