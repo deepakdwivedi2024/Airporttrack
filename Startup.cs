@@ -20,4 +20,8 @@ public void ConfigureServices(IServiceCollection services)
     });
 
     services.AddScoped<IAirportRepository, AirportRepository>();
+    services.Configure<MongoDBSettings>(Configuration.GetSection(nameof(MongoDBSettings)));
+    services.AddSingleton<IMongoDBSettings>(sp => sp.GetRequiredService<IOptions<MongoDBSettings>>().Value);
+
+    services.AddScoped<IAzureBlobStorageService, AzureBlobStorageService>();
 }
